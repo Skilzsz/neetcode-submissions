@@ -1,0 +1,29 @@
+class Solution {
+    /**
+     * @param {number[]} nums1
+     * @param {number} m
+     * @param {number[]} nums2
+     * @param {number} n
+     * @return {void} Do not return anything, modify nums1 in-place instead.
+     */
+
+    //nums1 = total length of m+n
+    // m = values to be merged
+    // n = 0 as placeholder. 
+
+    //O: nums1 with all the values placed at index of "m"
+
+    merge(nums1, m, nums2, n) {
+        let last = m + n - 1;
+        let i = m - 1,
+            j = n - 1;
+
+        while (j >= 0) {
+            if (i >= 0 && nums1[i] > nums2[j]) {
+                nums1[last--] = nums1[i--];
+            } else {
+                nums1[last--] = nums2[j--];
+            }
+        }
+    }
+}
